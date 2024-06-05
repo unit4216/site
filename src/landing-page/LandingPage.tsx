@@ -28,6 +28,8 @@ export const LandingPage = function () {
     <div className="bg-sky-950 w-full h-full">
       <div className="text-white flex flex-col items-start">
         {/*  Anchors */}
+        {/* todo make anchors work */}
+        {/* todo add some animations? */}
         <div className="flex gap-x-10 w-full justify-center mt-10 font-thin">
           <div>Home</div>
           <div>Career</div>
