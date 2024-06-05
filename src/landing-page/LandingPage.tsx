@@ -36,7 +36,7 @@ export const LandingPage = function () {
         {/* Name etc */}
         <div className="ml-96 mt-72">
           <div className="text-7xl font-thin">Pablo Paliza-Carre</div>
-          <div className="text-2xl font-thin">Full stack software engineer</div>
+          <div className="text-2xl font-thin mt-2">Full stack software engineer</div>
         </div>
         {/*  Career */}
         <div className="ml-96 mt-[50vh] mb-20">
@@ -50,6 +50,14 @@ export const LandingPage = function () {
               </div>
             </div>
           ))}
+        </div>
+        {/*  Contact */}
+        <div className="ml-96 mt-72 mb-96 flex flex-col">
+          {/* todo change to copy to clipboard? */}
+          <a className="text-2xl font-thin mt-2" href="mailto:pf.paliza@gmail.com">pf.paliza@gmail.com</a>
+          <a href="https://www.linkedin.com/in/pablo-paliza-carre-029676134/">LinkedIn</a>
+          {/* todo add github link */}
+          <div>GitHub</div>
         </div>
       </div>
     </div>
