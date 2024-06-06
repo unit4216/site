@@ -10,9 +10,7 @@ import {
 } from '@tsparticles/engine';
 
 const particlesOptions = {
-  background: {
-    opacity: 0,
-  },
+  background: { opacity: 0 },
   fpsLimit: 120,
   interactivity: {
     events: {
@@ -36,9 +34,7 @@ const particlesOptions = {
     },
   },
   particles: {
-    color: {
-      value: '#ffffff',
-    },
+    color: { value: '#ffffff' },
     links: {
       color: '#ffffff',
       distance: 150,
@@ -57,20 +53,12 @@ const particlesOptions = {
       straight: false,
     },
     number: {
-      density: {
-        enable: true,
-      },
+      density: { enable: true },
       value: 80,
     },
-    opacity: {
-      value: 0.5,
-    },
-    shape: {
-      type: 'circle',
-    },
-    size: {
-      value: { min: 1, max: 5 },
-    },
+    opacity: { value: 0.5 },
+    shape: { type: 'circle' },
+    size: { value: { min: 1, max: 5 } },
   },
   detectRetina: true,
 };
@@ -116,6 +104,13 @@ export const LandingPage = function () {
 
   const options: ISourceOptions = useMemo(() => particlesOptions, []);
 
+  const animProps = {
+    initial: { x: 0, y: 50, opacity: 0 },
+    animate: { x: 0, y: 50, opacity: 0 },
+    whileInView: { x: 0, y: 0, opacity: 1 },
+    viewport: { once: false },
+  };
+
   return (
     <div className="bg-sky-950 w-full h-full">
       <div className="text-white flex flex-col items-start">
@@ -137,46 +132,54 @@ export const LandingPage = function () {
         <div className="ml-96 mt-72">
           <motion.div
             className="text-7xl font-thin"
-            initial={{ x: -100, y: 0, opacity: 0 }}
-            animate={{ x: -100, y: 0, opacity: 0 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            whileInView={{ x: 0, y: 0, opacity: 1 }}
-            viewport={{ once: false }}
+            {...animProps}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
           >
             Pablo Paliza-Carre
           </motion.div>
           <motion.div
             className="text-2xl font-thin mt-2"
-            initial={{ x: -100, y: 0, opacity: 0 }}
-            animate={{ x: -100, y: 0, opacity: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            whileInView={{ x: 0, y: 0, opacity: 1 }}
-            viewport={{ once: false }}
+            {...animProps}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
           >
             Full stack software engineer
           </motion.div>
         </div>
         {/*  Career */}
         <div className="ml-96 mt-[50vh] mb-20">
-          {careerPoints.map((job) => (
+          {careerPoints.map((job, index) => (
             <div className="flex flex-row mb-10">
-              <div className="font-thin w-52 text-right">{job.date}</div>
-              <div className="flex flex-col ml-12">
+              <motion.div
+                className="font-thin w-52 text-right"
+                {...animProps}
+                transition={{ duration: 0.2 + (index * 0.1), ease: 'easeOut' }}
+              >
+                {job.date}
+              </motion.div>
+              <motion.div
+                className="flex flex-col ml-12"
+                {...animProps}
+                transition={{ duration: 0.2 + (index * 0.1), ease: 'easeOut' }}
+              >
                 <div className="font-bold">{job.employer}</div>
                 <div>{job.title}</div>
                 <div className="font-thin">{job.desc}</div>
-              </div>
+              </motion.div>
             </div>
           ))}
         </div>
         {/*  Contact */}
-        <div className="ml-96 mt-72 mb-96 flex flex-col">
+        <motion.div
+          className="ml-96 mt-72 mb-96 flex flex-col"
+          {...animProps}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+        >
           {/* todo change to copy to clipboard? */}
           <a className="text-2xl font-thin mt-2" href="mailto:pf.paliza@gmail.com">pf.paliza@gmail.com</a>
           <a href="https://www.linkedin.com/in/pablo-paliza-carre-029676134/">LinkedIn</a>
           {/* todo add github link */}
           <div>GitHub</div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
