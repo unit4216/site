@@ -1,5 +1,79 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
+import Particles, { initParticlesEngine } from '@tsparticles/react';
+import { loadSlim } from '@tsparticles/slim';
+import {
+  type Container,
+  type ISourceOptions,
+  MoveDirection,
+  OutMode,
+} from '@tsparticles/engine';
+
+const particlesOptions = {
+  background: {
+    opacity: 0,
+  },
+  fpsLimit: 120,
+  interactivity: {
+    events: {
+      onClick: {
+        enable: true,
+        mode: 'push',
+      },
+      onHover: {
+        enable: true,
+        mode: 'repulse',
+      },
+    },
+    modes: {
+      push: {
+        quantity: 4,
+      },
+      repulse: {
+        distance: 200,
+        duration: 0.4,
+      },
+    },
+  },
+  particles: {
+    color: {
+      value: '#ffffff',
+    },
+    links: {
+      color: '#ffffff',
+      distance: 150,
+      enable: true,
+      opacity: 0.5,
+      width: 1,
+    },
+    move: {
+      direction: MoveDirection.none,
+      enable: true,
+      outModes: {
+        default: OutMode.out,
+      },
+      random: false,
+      speed: 6,
+      straight: false,
+    },
+    number: {
+      density: {
+        enable: true,
+      },
+      value: 80,
+    },
+    opacity: {
+      value: 0.5,
+    },
+    shape: {
+      type: 'circle',
+    },
+    size: {
+      value: { min: 1, max: 5 },
+    },
+  },
+  detectRetina: true,
+};
 
 export const LandingPage = function () {
   //    todo make responsive
@@ -25,6 +99,23 @@ export const LandingPage = function () {
     },
   ];
 
+  const [init, setInit] = useState(false);
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      // starting from v2 you can add only the features you need reducing the bundle size
+      // await loadAll(engine);
+      // await loadFull(engine);
+      await loadSlim(engine);
+      // await loadBasic(engine);
+    }).then(() => {
+      setInit(true);
+    });
+  }, []);
+
+  const particlesLoaded = async (container?: Container): Promise<void> => { console.log(container); };
+
+  const options: ISourceOptions = useMemo(() => particlesOptions, []);
+
   return (
     <div className="bg-sky-950 w-full h-full">
       <div className="text-white flex flex-col items-start">
@@ -36,6 +127,12 @@ export const LandingPage = function () {
           <div>Career</div>
           <div>Contact</div>
         </div>
+        {/* Particles animation */}
+        <Particles
+          id="tsparticles"
+          particlesLoaded={particlesLoaded}
+          options={options}
+        />
         {/* Name etc */}
         <div className="ml-96 mt-72">
           <motion.div
