@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export const LandingPage = function () {
   //    todo make responsive
@@ -37,8 +38,26 @@ export const LandingPage = function () {
         </div>
         {/* Name etc */}
         <div className="ml-96 mt-72">
-          <div className="text-7xl font-thin">Pablo Paliza-Carre</div>
-          <div className="text-2xl font-thin mt-2">Full stack software engineer</div>
+          <motion.div
+            className="text-7xl font-thin"
+            initial={{ x: -100, y: 0, opacity: 0 }}
+            animate={{ x: -100, y: 0, opacity: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            whileInView={{ x: 0, y: 0, opacity: 1 }}
+            viewport={{ once: false }}
+          >
+            Pablo Paliza-Carre
+          </motion.div>
+          <motion.div
+            className="text-2xl font-thin mt-2"
+            initial={{ x: -100, y: 0, opacity: 0 }}
+            animate={{ x: -100, y: 0, opacity: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            whileInView={{ x: 0, y: 0, opacity: 1 }}
+            viewport={{ once: false }}
+          >
+            Full stack software engineer
+          </motion.div>
         </div>
         {/*  Career */}
         <div className="ml-96 mt-[50vh] mb-20">
