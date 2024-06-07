@@ -197,10 +197,28 @@ export const LandingPage = function () {
             transition={{ duration: 0.5, ease: 'easeOut' }}
           >
             {/* todo change to copy to clipboard? */}
-            <a className="text-2xl font-thin mt-2" href="mailto:pf.paliza@gmail.com">pf.paliza@gmail.com</a>
-            <a target="_blank" href="https://www.linkedin.com/in/pablo-paliza-carre-029676134/" rel="noreferrer">LinkedIn</a>
+            <a
+              className="text-2xl font-thin mt-2 hover:text-gray-300"
+              href="mailto:pf.paliza@gmail.com"
+            >
+              pf.paliza@gmail.com
+            </a>
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/pablo-paliza-carre-029676134/"
+              rel="noreferrer"
+              className="hover:text-gray-300"
+            >
+              LinkedIn
+            </a>
             {/* todo add github link */}
-            <div>GitHub</div>
+            <a
+              href="#"
+              target="_blank"
+              className="hover:text-gray-300"
+            >
+              GitHub
+            </a>
           </motion.div>
         </div>
       </div>
