@@ -118,10 +118,23 @@ export const LandingPage = function () {
         {/*  Anchors */}
         {/* todo make anchors work */}
         {/* todo add some animations? */}
-        <div className="flex gap-x-10 w-full justify-center mt-10 font-light">
-          <div>Home</div>
-          <div>Career</div>
-          <div>Contact</div>
+        <div
+          className="flex gap-x-10 w-full justify-center mt-10 font-light"
+        >
+          <button
+            type="button"
+            onClick={() => document.getElementById('career')?.scrollIntoView()}
+            className="hover:text-gray-300"
+          >
+            Career
+          </button>
+          <button
+            type="button"
+            onClick={() => document.getElementById('contact')?.scrollIntoView()}
+            className="hover:text-gray-300"
+          >
+            Contact
+          </button>
         </div>
         {/* Particles animation */}
         <Particles
@@ -147,7 +160,7 @@ export const LandingPage = function () {
           </motion.div>
         </div>
         {/*  Career */}
-        <div className="ml-96 mt-[50vh] mb-20">
+        <div id="career" className="ml-96 mt-[50vh] mb-20 py-20">
           {careerPoints.map((job, index) => (
             <div className="flex flex-row mb-10">
               <motion.div
@@ -170,7 +183,7 @@ export const LandingPage = function () {
           ))}
         </div>
         {/*  Contact */}
-        <div className="mt-96 mb-72 flex flex-row gap-x-10 justify-center w-full">
+        <div id="contact" className="mt-96 mb-72 flex flex-row gap-x-10 justify-center w-full">
           <motion.div
             {...animProps}
             transition={{ duration: 0.4, ease: 'easeOut' }}
