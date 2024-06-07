@@ -8,6 +8,7 @@ import {
   MoveDirection,
   OutMode,
 } from '@tsparticles/engine';
+import catPhoto from '../assets/cat.jpg';
 
 const particlesOptions = {
   background: { opacity: 0 },
@@ -117,7 +118,7 @@ export const LandingPage = function () {
         {/*  Anchors */}
         {/* todo make anchors work */}
         {/* todo add some animations? */}
-        <div className="flex gap-x-10 w-full justify-center mt-10 font-thin">
+        <div className="flex gap-x-10 w-full justify-center mt-10 font-light">
           <div>Home</div>
           <div>Career</div>
           <div>Contact</div>
@@ -169,17 +170,26 @@ export const LandingPage = function () {
           ))}
         </div>
         {/*  Contact */}
-        <motion.div
-          className="ml-96 mt-72 mb-96 flex flex-col"
-          {...animProps}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-        >
-          {/* todo change to copy to clipboard? */}
-          <a className="text-2xl font-thin mt-2" href="mailto:pf.paliza@gmail.com">pf.paliza@gmail.com</a>
-          <a href="https://www.linkedin.com/in/pablo-paliza-carre-029676134/">LinkedIn</a>
-          {/* todo add github link */}
-          <div>GitHub</div>
-        </motion.div>
+        <div className="mt-96 mb-72 flex flex-row gap-x-10 justify-center w-full">
+          <motion.div
+            {...animProps}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
+            className="z-0"
+          >
+            <img src={catPhoto} className="h-72 rounded-lg" />
+          </motion.div>
+          <motion.div
+            className="flex flex-col justify-center"
+            {...animProps}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+          >
+            {/* todo change to copy to clipboard? */}
+            <a className="text-2xl font-thin mt-2" href="mailto:pf.paliza@gmail.com">pf.paliza@gmail.com</a>
+            <a target="_blank" href="https://www.linkedin.com/in/pablo-paliza-carre-029676134/" rel="noreferrer">LinkedIn</a>
+            {/* todo add github link */}
+            <div>GitHub</div>
+          </motion.div>
+        </div>
       </div>
     </div>
   );
