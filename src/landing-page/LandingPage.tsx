@@ -112,6 +112,8 @@ export const LandingPage = function () {
     viewport: { once: false },
   };
 
+  // todo add projects section
+
   return (
     <div className="bg-sky-950 w-full h-full">
       <div className="text-white flex flex-col items-start">
