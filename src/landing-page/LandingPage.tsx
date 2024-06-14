@@ -36,6 +36,8 @@ function LandingPage() {
     viewport: { once: false },
   };
 
+  const scrollElementIntoView = (elementId: string) => document.getElementById(elementId)?.scrollIntoView();
+
   // todo add projects section
 
   return (
@@ -47,14 +49,14 @@ function LandingPage() {
         >
           <button
             type="button"
-            onClick={() => document.getElementById('career')?.scrollIntoView()}
+            onClick={() => scrollElementIntoView('career')}
             className="hover:text-gray-300"
           >
             Career
           </button>
           <button
             type="button"
-            onClick={() => document.getElementById('contact')?.scrollIntoView()}
+            onClick={() => scrollElementIntoView('contact')}
             className="hover:text-gray-300"
           >
             Contact
