@@ -12,17 +12,9 @@ import particlesOptions from './particles-options';
 function LandingPage() {
   //    todo make responsive
 
-  const [init, setInit] = useState(false);
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      // starting from v2 you can add only the features you need reducing the bundle size
-      // await loadAll(engine);
-      // await loadFull(engine);
-      await loadSlim(engine);
-      // await loadBasic(engine);
-    }).then(() => {
-      setInit(true);
-    });
+    initParticlesEngine(async (engine) => { await loadSlim(engine); })
+      .catch(err=>console.error(err));
   }, []);
 
   const particlesLoaded = async (container?: Container): Promise<void> => { console.log(container); };
