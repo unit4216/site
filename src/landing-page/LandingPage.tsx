@@ -42,8 +42,6 @@ function LandingPage() {
     <div className="bg-sky-950 w-full h-full">
       <div className="text-white flex flex-col items-start">
         {/*  Anchors */}
-        {/* todo make anchors work */}
-        {/* todo add some animations? */}
         <div
           className="flex gap-x-10 w-full justify-center mt-10 font-light"
         >
@@ -68,7 +66,7 @@ function LandingPage() {
           particlesLoaded={particlesLoaded}
           options={options}
         />
-        {/* Name etc */}
+        {/* Name and title */}
         <div className="ml-96 mt-72">
           <motion.div
             className="text-7xl font-thin"
@@ -122,7 +120,6 @@ function LandingPage() {
             {...animProps}
             transition={{ duration: 0.5, ease: 'easeOut' }}
           >
-            {/* todo change to copy to clipboard? */}
             <a
               className="text-2xl font-thin mt-2 hover:text-gray-300"
               href="mailto:pf.paliza@gmail.com"
