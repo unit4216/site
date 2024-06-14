@@ -88,7 +88,7 @@ function LandingPage() {
         {/*  Career */}
         <div id="career" className="ml-96 mt-[50vh] mb-20 py-20">
           {careerPoints.map((job, index) => (
-            <div className="flex flex-row mb-10">
+            <div key={job.id} className="flex flex-row mb-10">
               <motion.div
                 className="font-thin w-52 text-right"
                 {...animProps}
