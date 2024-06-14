@@ -20,5 +20,8 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "react/jsx-props-no-spreading": "off",
+        "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
+        "max-len": ["error", { "code": 120 }]
     }
 }

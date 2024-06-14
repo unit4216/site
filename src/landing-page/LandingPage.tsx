@@ -2,91 +2,15 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
-import {
-  type Container,
-  type ISourceOptions,
-  MoveDirection,
-  OutMode,
-} from '@tsparticles/engine';
+import { type Container, type ISourceOptions } from '@tsparticles/engine';
+import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
+import { Divider } from '@mui/material';
 import catPhoto from '../assets/cat.jpg';
+import careerPoints from './career-points';
+import particlesOptions from './particles-options';
 
-const particlesOptions = {
-  background: { opacity: 0 },
-  fpsLimit: 120,
-  interactivity: {
-    events: {
-      onClick: {
-        enable: true,
-        mode: 'push',
-      },
-      onHover: {
-        enable: true,
-        mode: 'repulse',
-      },
-    },
-    modes: {
-      push: {
-        quantity: 4,
-      },
-      repulse: {
-        distance: 200,
-        duration: 0.4,
-      },
-    },
-  },
-  particles: {
-    color: { value: '#ffffff' },
-    links: {
-      color: '#ffffff',
-      distance: 150,
-      enable: true,
-      opacity: 0.5,
-      width: 1,
-    },
-    move: {
-      direction: MoveDirection.none,
-      enable: true,
-      outModes: {
-        default: OutMode.out,
-      },
-      random: false,
-      speed: 1,
-      straight: false,
-    },
-    number: {
-      density: { enable: true },
-      value: 150,
-    },
-    opacity: { value: 0.5 },
-    shape: { type: 'circle' },
-    size: { value: { min: 1, max: 5 } },
-  },
-  detectRetina: true,
-};
-
-export const LandingPage = function () {
+function LandingPage() {
   //    todo make responsive
-
-  const careerPoints = [
-    {
-      date: '2022 - present', employer: 'Westland', title: 'Software Engineer', desc: 'Did stuff',
-    },
-    {
-      date: '2024 - present', employer: 'University of Colorado Boulder', title: 'Student', desc: 'Master\'s of Science in Computer Science',
-    },
-    {
-      date: '2020 - present', employer: 'Paliza Consulting', title: 'Software Engineering Consultant', desc: 'Write and maintain scripts',
-    },
-    {
-      date: '2021 - 2022', employer: 'Synergy Associates', title: 'IT Engineer', desc: 'Did stuff',
-    },
-    {
-      date: '2020 - 2021', employer: 'Equity Smart', title: 'IT Support Coordinator', desc: 'Did stuff',
-    },
-    {
-      date: '2015 - 2018', employer: 'Goldsmiths, University of London', title: 'Student', desc: 'Bachelor\'s of Music',
-    },
-  ];
 
   const [init, setInit] = useState(false);
   useEffect(() => {
@@ -191,10 +115,10 @@ export const LandingPage = function () {
             transition={{ duration: 0.4, ease: 'easeOut' }}
             className="z-0"
           >
-            <img src={catPhoto} className="h-72 rounded-lg" />
+            <img src={catPhoto} alt="My cat, Coco" className="h-72 rounded-lg" />
           </motion.div>
           <motion.div
-            className="flex flex-col justify-center"
+            className="flex flex-col justify-center gap-y-4"
             {...animProps}
             transition={{ duration: 0.5, ease: 'easeOut' }}
           >
@@ -205,25 +129,33 @@ export const LandingPage = function () {
             >
               pf.paliza@gmail.com
             </a>
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/pablo-paliza-carre-029676134/"
-              rel="noreferrer"
-              className="hover:text-gray-300"
-            >
-              LinkedIn
-            </a>
-            {/* todo add github link */}
-            <a
-              href="#"
-              target="_blank"
-              className="hover:text-gray-300"
-            >
-              GitHub
-            </a>
+            <Divider flexItem className="bg-gray-300 w-4/5" />
+            <div>
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/in/pablo-paliza-carre-029676134/"
+                rel="noreferrer"
+                className="hover:text-gray-300 flex flex-row items-center"
+              >
+                LinkedIn
+                <ArrowOutwardIcon />
+              </a>
+              {/* todo make sure github is cleaned up */}
+              <a
+                href="https://github.com/unit4216/"
+                target="_blank"
+                className="hover:text-gray-300 flex flex-row items-center"
+                rel="noreferrer"
+              >
+                GitHub
+                <ArrowOutwardIcon />
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>
     </div>
   );
-};
+}
+
+export default LandingPage;
