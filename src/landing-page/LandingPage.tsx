@@ -16,7 +16,7 @@ const animProps = {
 };
 
 // todo clean this up
-const firstOneProps = {
+const staticLoadProps = {
   initial: { x: 0, y: 0, opacity: 1 },
   animate: { x: 0, y: 50, opacity: 0 },
   whileInView: { x: 0, y: 0, opacity: 1 },
@@ -68,14 +68,14 @@ function LandingPage() {
         <div className="w-[70rem] mt-[40vh]">
           <motion.div
             className="text-7xl font-thin"
-            {...firstOneProps}
+            {...staticLoadProps}
             transition={{ duration: 0.4, ease: 'easeOut' }}
           >
             Pablo Paliza-Carre
           </motion.div>
           <motion.div
             className="text-2xl font-thin mt-2"
-            {...firstOneProps}
+            {...staticLoadProps}
             transition={{ duration: 0.5, ease: 'easeOut' }}
           >
             Full stack software engineer
