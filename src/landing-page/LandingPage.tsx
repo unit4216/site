@@ -23,6 +23,11 @@ const staticLoadProps = {
   viewport: { once: false },
 };
 
+enum PageSections {
+  CAREER = 'Career',
+  CONTACT = 'Contact',
+}
+
 
 function LandingPage() {
   //    todo make responsive
@@ -50,20 +55,18 @@ function LandingPage() {
         <div
           className="flex gap-x-10 w-full justify-center mt-10 font-light"
         >
-          <button
-            type="button"
-            onClick={() => scrollElementIntoView('career')}
-            className="hover:text-gray-300"
-          >
-            Career
-          </button>
-          <button
-            type="button"
-            onClick={() => scrollElementIntoView('contact')}
-            className="hover:text-gray-300"
-          >
-            Contact
-          </button>
+          {Object.values(PageSections).map(section=>{
+            return (
+                <button
+                    type="button"
+                    key={section}
+                    onClick={() => scrollElementIntoView(section)}
+                    className="hover:text-gray-300"
+                >
+                  {section}
+                </button>
+            );
+          })}
         </div>
         {/* Name and title */}
         <div className="w-[70rem] mt-[40vh]">
@@ -84,7 +87,7 @@ function LandingPage() {
         </div>
         </div>
         {/*  Career section */}
-        <div id="career" className="py-20 h-[100vh]">
+        <div id={PageSections.CAREER} className="py-20 h-[100vh]">
           {careerPoints.map((job, index) => {
 
             const firstEducationPoint = job.type === 'education' && careerPoints[index - 1]?.type === 'work';
@@ -119,7 +122,7 @@ function LandingPage() {
           })}
         </div>
         {/*  Contact section */}
-        <div id="contact" className="h-[100vh] flex flex-row gap-x-10 justify-center w-full">
+        <div id={PageSections.CONTACT} className="h-[100vh] flex flex-row gap-x-10 justify-center w-full">
           <div className='flex flex-row items-center gap-x-10'>
           <motion.div
             {...animProps}
