@@ -3,6 +3,19 @@ export enum PositionType {
   EDUCATION = 'Education',
 }
 
+export const getAnimProps = (duration: number) => ({
+  initial: { x: 0, y: 50, opacity: 0 },
+  animate: { x: 0, y: 50, opacity: 0 },
+  whileInView: { x: 0, y: 0, opacity: 1 },
+  viewport: { once: false },
+  transition: { duration, ease: 'easeOut' },
+});
+
+export enum PageSections {
+  CAREER = 'Career',
+  CONTACT = 'Contact',
+}
+
 const careerPoints = [
   {
     id: 1,
