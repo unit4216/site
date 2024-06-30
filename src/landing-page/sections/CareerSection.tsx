@@ -7,32 +7,40 @@ function CareerSection() {
   return (
     <div id={PageSections.CAREER} className="py-20 h-[100vh]">
       {careerPoints.map((job, index) => {
+        const {
+          id, description, employer, type, date, title,
+        } = job;
         // Show divider between education and work section if start of education section
-        const showDivider = job.type === PositionType.EDUCATION
-                    && careerPoints[index - 1]?.type === PositionType.WORK;
+        const previousEntry = careerPoints[index - 1];
+        const showDivider = type === PositionType.EDUCATION && previousEntry?.type === PositionType.WORK;
+        // variable animation duration
+        const duration = 0.2 + (index * 0.1);
         return (
-          <div key={job.id}>
+          <div key={id}>
             {/* Work/education divider */}
             {showDivider && (
-            <div className="flex flex-col items-center my-10">
+            <motion.div
+              className="flex flex-col items-center my-10"
+              {...getAnimProps(duration)}
+            >
               <Divider color="gray" className="w-1/2 mx-auto" />
-            </div>
+            </motion.div>
             )}
             {/* Display work/education event */}
             <div className="flex flex-row my-4">
               <motion.div
                 className="font-thin w-52 text-right"
-                {...getAnimProps(0.2 + (index * 0.1))}
+                {...getAnimProps(duration)}
               >
-                {job.date}
+                {date}
               </motion.div>
               <motion.div
                 className="flex flex-col ml-12"
-                {...getAnimProps(0.2 + (index * 0.1))}
+                {...getAnimProps(duration)}
               >
-                <div className="font-bold">{job.employer}</div>
-                <div>{job.title}</div>
-                <div className="font-thin w-[50rem]">{job.desc}</div>
+                <div className="font-bold">{employer}</div>
+                <div>{title}</div>
+                <div className="font-thin w-[50rem]">{description}</div>
               </motion.div>
             </div>
           </div>

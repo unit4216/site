@@ -36,14 +36,14 @@ function ContactSection() {
           {/* Links */}
           <Divider flexItem className="bg-gray-300 w-4/5" />
           <div>
-            {links.map((link) => (
+            {links.map(({ link, name }) => (
               <a
                 target="_blank"
-                href={link.link}
+                href={link}
                 rel="noreferrer"
                 className="hover:text-gray-300 flex flex-row items-center"
               >
-                {link.name}
+                {name}
                 <ArrowOutwardIcon />
               </a>
             ))}
