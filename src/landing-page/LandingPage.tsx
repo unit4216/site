@@ -8,12 +8,13 @@ import catPhoto from '../assets/cat.jpg';
 import careerPoints from './career-points';
 import particlesOptions from './particles-options';
 
-const animProps = {
+const getAnimProps = (duration: number) => ({
   initial: { x: 0, y: 50, opacity: 0 },
   animate: { x: 0, y: 50, opacity: 0 },
   whileInView: { x: 0, y: 0, opacity: 1 },
   viewport: { once: false },
-};
+  transition: { duration, ease: 'easeOut' },
+});
 
 // todo clean this up
 const staticLoadProps = {
@@ -49,9 +50,7 @@ function LandingPage() {
             options={particlesOptions}
           />
           {/*  Anchors */}
-          <div
-            className="flex gap-x-10 w-full justify-center mt-10 font-light"
-          >
+          <div className="flex gap-x-10 w-full justify-center mt-10 font-light">
             {Object.values(PageSections).map((section) => (
               <button
                 type="button"
@@ -96,15 +95,13 @@ function LandingPage() {
                 <div className="flex flex-row my-4">
                   <motion.div
                     className="font-thin w-52 text-right"
-                    {...animProps}
-                    transition={{ duration: 0.2 + (index * 0.1), ease: 'easeOut' }}
+                    {...getAnimProps(0.2 + (index * 0.1))}
                   >
                     {job.date}
                   </motion.div>
                   <motion.div
                     className="flex flex-col ml-12"
-                    {...animProps}
-                    transition={{ duration: 0.2 + (index * 0.1), ease: 'easeOut' }}
+                    {...getAnimProps(0.2 + (index * 0.1))}
                   >
                     <div className="font-bold">{job.employer}</div>
                     <div>{job.title}</div>
@@ -119,17 +116,15 @@ function LandingPage() {
         <div id={PageSections.CONTACT} className="h-[100vh] flex flex-row gap-x-10 justify-center w-full">
           <div className="flex flex-row items-center gap-x-10">
             <motion.div
-              {...animProps}
-              transition={{ duration: 0.4, ease: 'easeOut' }}
               className="z-0"
+              {...getAnimProps(0.4)}
             >
               <img src={catPhoto} alt="My cat, Coco" className="h-72 rounded-lg" />
               <div className="text-xs italic mt-2">Coco, circa 2024</div>
             </motion.div>
             <motion.div
               className="flex flex-col justify-center gap-y-4"
-              {...animProps}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
+              {...getAnimProps(0.5)}
             >
               <a
                 className="text-2xl font-thin mt-2 hover:text-gray-300"
