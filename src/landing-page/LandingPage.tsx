@@ -1,13 +1,19 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
-import { type Container, type ISourceOptions } from '@tsparticles/engine';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { Divider } from '@mui/material';
 import catPhoto from '../assets/cat.jpg';
 import careerPoints from './career-points';
 import particlesOptions from './particles-options';
+
+const animProps = {
+  initial: { x: 0, y: 50, opacity: 0 },
+  animate: { x: 0, y: 50, opacity: 0 },
+  whileInView: { x: 0, y: 0, opacity: 1 },
+  viewport: { once: false },
+};
 
 function LandingPage() {
   //    todo make responsive
@@ -17,16 +23,6 @@ function LandingPage() {
       .catch(err=>console.error(err));
   }, []);
 
-  const particlesLoaded = async (container?: Container): Promise<void> => { console.log(container); };
-
-  const options: ISourceOptions = useMemo(() => particlesOptions, []);
-
-  const animProps = {
-    initial: { x: 0, y: 50, opacity: 0 },
-    animate: { x: 0, y: 50, opacity: 0 },
-    whileInView: { x: 0, y: 0, opacity: 1 },
-    viewport: { once: false },
-  };
 
   const scrollElementIntoView = (elementId: string) => document.getElementById(elementId)?.scrollIntoView();
 
@@ -56,8 +52,8 @@ function LandingPage() {
         {/* Particles animation */}
         <Particles
           id="tsparticles"
-          particlesLoaded={particlesLoaded}
-          options={options}
+          particlesLoaded={async () => {}}
+          options={particlesOptions}
         />
         {/* Name and title */}
         <div className="ml-96 mt-72">
