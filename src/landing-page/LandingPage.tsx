@@ -115,6 +115,7 @@ function LandingPage() {
             className="z-0"
           >
             <img src={catPhoto} alt="My cat, Coco" className="h-72 rounded-lg" />
+            <div className='text-xs italic mt-2'>Coco, circa 2024</div>
           </motion.div>
           <motion.div
             className="flex flex-col justify-center gap-y-4"
