@@ -38,7 +38,14 @@ function LandingPage() {
 
   return (
     <div className="bg-sky-950 w-full h-full">
-      <div className="text-white flex flex-col items-start">
+      <div className="text-white flex flex-col items-center">
+        <div className='start h-[100vh]'>
+        {/* Particles animation */}
+        <Particles
+            id="tsparticles"
+            particlesLoaded={async () => {}}
+            options={particlesOptions}
+        />
         {/*  Anchors */}
         <div
           className="flex gap-x-10 w-full justify-center mt-10 font-light"
@@ -58,14 +65,8 @@ function LandingPage() {
             Contact
           </button>
         </div>
-        {/* Particles animation */}
-        <Particles
-          id="tsparticles"
-          particlesLoaded={async () => {}}
-          options={particlesOptions}
-        />
         {/* Name and title */}
-        <div className="ml-96 mt-72">
+        <div className="w-[70rem] mt-[40vh]">
           <motion.div
             className="text-7xl font-thin"
             {...firstOneProps}
@@ -81,8 +82,9 @@ function LandingPage() {
             Full stack software engineer
           </motion.div>
         </div>
+        </div>
         {/*  Career */}
-        <div id="career" className="ml-96 mt-[50vh] mb-20 py-20">
+        <div id="career" className="py-20 h-[100vh]">
           {careerPoints.map((job, index) => {
 
             const firstEducationPoint = job.type === 'education' && careerPoints[index - 1]?.type === 'work';
@@ -117,7 +119,8 @@ function LandingPage() {
           })}
         </div>
         {/*  Contact */}
-        <div id="contact" className="mt-96 mb-72 flex flex-row gap-x-10 justify-center w-full">
+        <div id="contact" className="h-[100vh] flex flex-row gap-x-10 justify-center w-full">
+          <div className='flex flex-row items-center gap-x-10'>
           <motion.div
             {...animProps}
             transition={{ duration: 0.4, ease: 'easeOut' }}
@@ -160,6 +163,7 @@ function LandingPage() {
               </a>
             </div>
           </motion.div>
+          </div>
         </div>
       </div>
     </div>
