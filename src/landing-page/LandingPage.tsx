@@ -39,7 +39,8 @@ function LandingPage() {
   return (
     <div className="bg-sky-950 w-full h-full">
       <div className="text-white flex flex-col items-center">
-        <div className='start h-[100vh]'>
+        {/* Cover section */}
+        <div className='h-[100vh]'>
         {/* Particles animation */}
         <Particles
             id="tsparticles"
@@ -82,7 +83,7 @@ function LandingPage() {
           </motion.div>
         </div>
         </div>
-        {/*  Career */}
+        {/*  Career section */}
         <div id="career" className="py-20 h-[100vh]">
           {careerPoints.map((job, index) => {
 
@@ -117,7 +118,7 @@ function LandingPage() {
             );
           })}
         </div>
-        {/*  Contact */}
+        {/*  Contact section */}
         <div id="contact" className="h-[100vh] flex flex-row gap-x-10 justify-center w-full">
           <div className='flex flex-row items-center gap-x-10'>
           <motion.div
