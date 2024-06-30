@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
@@ -30,7 +30,6 @@ function LandingPage() {
 
   const scrollElementIntoView = (elementId: string) => document.getElementById(elementId)?.scrollIntoView();
 
-  // todo add projects section
 
   return (
     <div className="bg-sky-950 w-full h-full">
@@ -79,8 +78,18 @@ function LandingPage() {
         </div>
         {/*  Career */}
         <div id="career" className="ml-96 mt-[50vh] mb-20 py-20">
-          {careerPoints.map((job, index) => (
-            <div key={job.id} className="flex flex-row mb-10">
+          {careerPoints.map((job, index) => {
+
+            const firstEducationPoint = job.type === 'education' && careerPoints[index - 1]?.type === 'work';
+
+            return (
+              <div key={job.id}>
+                {firstEducationPoint && (
+                    <div className='flex flex-col items-center my-10'>
+                      <Divider color='gray' className='w-1/2 mx-auto'/>
+                    </div>
+                )}
+              <div  className="flex flex-row my-4">
               <motion.div
                 className="font-thin w-52 text-right"
                 {...animProps}
@@ -95,10 +104,12 @@ function LandingPage() {
               >
                 <div className="font-bold">{job.employer}</div>
                 <div>{job.title}</div>
-                <div className="font-thin">{job.desc}</div>
+                <div className="font-thin w-[50rem]">{job.desc}</div>
               </motion.div>
             </div>
-          ))}
+              </div>
+            );
+          })}
         </div>
         {/*  Contact */}
         <div id="contact" className="mt-96 mb-72 flex flex-row gap-x-10 justify-center w-full">

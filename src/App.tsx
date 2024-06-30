@@ -10,8 +10,7 @@ function App() {
       <Routes>
         <Route path="/">
           <Route index element={<LandingPage />} />
-          <Route path="test" element={<div>test</div>} />
-          <Route path="*" element={<div>no page</div>} />
+          <Route path="*" element={<div>Error!  No page here.</div>} />
         </Route>
       </Routes>
     </BrowserRouter>
