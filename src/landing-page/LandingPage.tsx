@@ -5,7 +5,7 @@ import { loadSlim } from '@tsparticles/slim';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { Divider } from '@mui/material';
 import catPhoto from '../assets/cat.jpg';
-import careerPoints from './career-points';
+import careerPoints, { PositionType } from './career-points';
 import particlesOptions from './particles-options';
 
 const getAnimProps = (duration: number) => ({
@@ -15,6 +15,11 @@ const getAnimProps = (duration: number) => ({
   viewport: { once: false },
   transition: { duration, ease: 'easeOut' },
 });
+
+const links = [
+  { name: 'LinkedIn', link: 'https://www.linkedin.com/in/pablo-paliza-carre-029676134/' },
+  { name: 'GitHub', link: 'https://github.com/unit4216/' },
+];
 
 // todo clean this up
 const staticLoadProps = {
@@ -63,16 +68,16 @@ function LandingPage() {
             ))}
           </div>
           {/* Name and title */}
-          <div className="w-[70rem] mt-[40vh]">
+          <div className="w-[70rem] mt-[40vh] font-thin">
             <motion.div
-              className="text-7xl font-thin"
+              className="text-7xl"
               {...staticLoadProps}
               transition={{ duration: 0.4, ease: 'easeOut' }}
             >
               Pablo Paliza-Carre
             </motion.div>
             <motion.div
-              className="text-2xl font-thin mt-2"
+              className="text-2xl mt-2"
               {...staticLoadProps}
               transition={{ duration: 0.5, ease: 'easeOut' }}
             >
@@ -83,15 +88,18 @@ function LandingPage() {
         {/*  Career section */}
         <div id={PageSections.CAREER} className="py-20 h-[100vh]">
           {careerPoints.map((job, index) => {
-            const firstEducationPoint = job.type === 'education' && careerPoints[index - 1]?.type === 'work';
-
+            // Show divider between education and work section if start of education section
+            const showDivider = job.type === PositionType.EDUCATION
+                && careerPoints[index - 1]?.type === PositionType.WORK;
             return (
               <div key={job.id}>
-                {firstEducationPoint && (
+                {/* Work/education divider */}
+                {showDivider && (
                 <div className="flex flex-col items-center my-10">
                   <Divider color="gray" className="w-1/2 mx-auto" />
                 </div>
                 )}
+                {/* Display work/education event */}
                 <div className="flex flex-row my-4">
                   <motion.div
                     className="font-thin w-52 text-right"
@@ -115,6 +123,7 @@ function LandingPage() {
         {/*  Contact section */}
         <div id={PageSections.CONTACT} className="h-[100vh] flex flex-row gap-x-10 justify-center w-full">
           <div className="flex flex-row items-center gap-x-10">
+            {/* Cat photo */}
             <motion.div
               className="z-0"
               {...getAnimProps(0.4)}
@@ -126,33 +135,27 @@ function LandingPage() {
               className="flex flex-col justify-center gap-y-4"
               {...getAnimProps(0.5)}
             >
+              {/* Contact email */}
               <a
                 className="text-2xl font-thin mt-2 hover:text-gray-300"
                 href="mailto:pf.paliza@gmail.com"
               >
                 pf.paliza@gmail.com
               </a>
+              {/* Links */}
               <Divider flexItem className="bg-gray-300 w-4/5" />
               <div>
-                <a
-                  target="_blank"
-                  href="https://www.linkedin.com/in/pablo-paliza-carre-029676134/"
-                  rel="noreferrer"
-                  className="hover:text-gray-300 flex flex-row items-center"
-                >
-                  LinkedIn
-                  <ArrowOutwardIcon />
-                </a>
-                {/* todo make sure github is cleaned up */}
-                <a
-                  href="https://github.com/unit4216/"
-                  target="_blank"
-                  className="hover:text-gray-300 flex flex-row items-center"
-                  rel="noreferrer"
-                >
-                  GitHub
-                  <ArrowOutwardIcon />
-                </a>
+                {links.map((link) => (
+                  <a
+                    target="_blank"
+                    href={link.link}
+                    rel="noreferrer"
+                    className="hover:text-gray-300 flex flex-row items-center"
+                  >
+                    {link.name}
+                    <ArrowOutwardIcon />
+                  </a>
+                ))}
               </div>
             </motion.div>
           </div>
