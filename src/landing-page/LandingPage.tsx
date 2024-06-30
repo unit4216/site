@@ -15,6 +15,15 @@ const animProps = {
   viewport: { once: false },
 };
 
+// todo clean this up
+const firstOneProps = {
+  initial: { x: 0, y: 0, opacity: 1 },
+  animate: { x: 0, y: 50, opacity: 0 },
+  whileInView: { x: 0, y: 0, opacity: 1 },
+  viewport: { once: false },
+};
+
+
 function LandingPage() {
   //    todo make responsive
 
@@ -59,14 +68,14 @@ function LandingPage() {
         <div className="ml-96 mt-72">
           <motion.div
             className="text-7xl font-thin"
-            {...animProps}
+            {...firstOneProps}
             transition={{ duration: 0.4, ease: 'easeOut' }}
           >
             Pablo Paliza-Carre
           </motion.div>
           <motion.div
             className="text-2xl font-thin mt-2"
-            {...animProps}
+            {...firstOneProps}
             transition={{ duration: 0.5, ease: 'easeOut' }}
           >
             Full stack software engineer
