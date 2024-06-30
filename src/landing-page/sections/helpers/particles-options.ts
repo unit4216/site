@@ -1,5 +1,8 @@
 import { MoveDirection, OutMode } from '@tsparticles/engine';
 
+/**
+ * Options which control the particles animation.
+ */
 const particlesOptions = {
   background: { opacity: 0 },
   fpsLimit: 120,

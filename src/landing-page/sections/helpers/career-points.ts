@@ -1,21 +1,8 @@
-export enum PositionType {
-  WORK = 'Work',
-  EDUCATION = 'Education',
-}
+import { PositionType } from '../types/section-types';
 
-export const getAnimProps = (duration: number) => ({
-  initial: { x: 0, y: 50, opacity: 0 },
-  animate: { x: 0, y: 50, opacity: 0 },
-  whileInView: { x: 0, y: 0, opacity: 1 },
-  viewport: { once: false },
-  transition: { duration, ease: 'easeOut' },
-});
-
-export enum PageSections {
-  CAREER = 'Career',
-  CONTACT = 'Contact',
-}
-
+/**
+ * Career/education information.
+ */
 const careerPoints = [
   {
     id: 1,

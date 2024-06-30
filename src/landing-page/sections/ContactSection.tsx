@@ -3,7 +3,8 @@ import { Divider } from '@mui/material';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import React from 'react';
 import catPhoto from '../../assets/cat.jpg';
-import { getAnimProps, PageSections } from '../career-points';
+import { PageSections } from './types/section-types';
+import getAnimProps from './helpers/motion-helpers';
 
 const links = [
   { name: 'LinkedIn', link: 'https://www.linkedin.com/in/pablo-paliza-carre-029676134/' },

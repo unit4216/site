@@ -6,8 +6,7 @@ import CareerSection from './sections/CareerSection';
 import ContactSection from './sections/ContactSection';
 
 function LandingPage() {
-  //    todo make responsive
-
+  // load particles animation
   useEffect(() => {
     initParticlesEngine(async (engine) => { await loadSlim(engine); })
       .catch((err) => console.error(err));

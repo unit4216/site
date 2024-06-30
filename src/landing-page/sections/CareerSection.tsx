@@ -1,7 +1,9 @@
 import { Divider } from '@mui/material';
 import { motion } from 'framer-motion';
 import React from 'react';
-import careerPoints, { getAnimProps, PageSections, PositionType } from '../career-points';
+import careerPoints from './helpers/career-points';
+import { PageSections, PositionType } from './types/section-types';
+import getAnimProps from './helpers/motion-helpers';
 
 function CareerSection() {
   return (
@@ -10,8 +12,9 @@ function CareerSection() {
         const {
           id, description, employer, type, date, title,
         } = job;
-        // Show divider between education and work section if start of education section
         const previousEntry = careerPoints[index - 1];
+        // Show divider between education and work section if start of education section.
+        // This works assuming that points are ordered as expected.
         const showDivider = type === PositionType.EDUCATION && previousEntry?.type === PositionType.WORK;
         // variable animation duration
         const duration = 0.2 + (index * 0.1);

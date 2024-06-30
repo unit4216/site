@@ -1,9 +1,10 @@
 import Particles from '@tsparticles/react';
 import { motion } from 'framer-motion';
 import React from 'react';
-import particlesOptions from '../particles-options';
-import { PageSections } from '../career-points';
+import particlesOptions from './helpers/particles-options';
+import { PageSections } from './types/section-types';
 
+// only load on scroll into view rather than on initial load
 const staticLoadProps = (duration: number) => ({
   initial: { x: 0, y: 0, opacity: 1 },
   animate: { x: 0, y: 50, opacity: 0 },
