@@ -43,7 +43,6 @@ function LandingPage() {
         {/* Particles animation */}
         <Particles
             id="tsparticles"
-            particlesLoaded={async () => {}}
             options={particlesOptions}
         />
         {/*  Anchors */}
