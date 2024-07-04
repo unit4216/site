@@ -5,6 +5,10 @@ import CoverSection from './sections/CoverSection';
 import CareerSection from './sections/CareerSection';
 import ContactSection from './sections/ContactSection';
 
+/**
+ * Displays the landing page/only page of the site.
+ * @constructor
+ */
 function LandingPage() {
   // load particles animation
   useEffect(() => {

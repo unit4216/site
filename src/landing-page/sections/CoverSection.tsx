@@ -13,6 +13,10 @@ const staticLoadProps = (duration: number) => ({
   transition: { duration, ease: 'easeOut' },
 });
 
+/**
+ * First/cover section of the landing page.
+ * @constructor
+ */
 function CoverSection() {
   const scrollElementIntoView = (elementId: string) => document.getElementById(elementId)?.scrollIntoView();
 

@@ -11,6 +11,10 @@ const links = [
   { name: 'GitHub', link: 'https://github.com/unit4216/' },
 ];
 
+/**
+ * Landing page section containing contact info.
+ * @constructor
+ */
 function ContactSection() {
   return (
     <div id={PageSections.CONTACT} className="h-[100vh] flex flex-row gap-x-10 justify-center w-full">

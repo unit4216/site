@@ -5,6 +5,10 @@ import careerPoints from './helpers/career-points';
 import { PageSections, PositionType } from './types/section-types';
 import getAnimProps from './helpers/motion-helpers';
 
+/**
+ * Landing page section containing career info.
+ * @constructor
+ */
 function CareerSection() {
   return (
     <div id={PageSections.CAREER} className="py-20 h-[100vh]">
