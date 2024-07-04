@@ -38,7 +38,7 @@ function CoverSection() {
         ))}
       </div>
       {/* Name and title */}
-      <div className="w-[70rem] mt-[40vh] font-thin">
+      <div className="w-[60vw] mt-[40vh] font-thin">
         <motion.div
           className="text-7xl"
           {...staticLoadProps(0.4)}

@@ -36,7 +36,7 @@ function CareerSection() {
             {/* Display work/education event */}
             <div className="flex flex-row my-4">
               <motion.div
-                className="font-thin w-52 text-right"
+                className="font-thin w-[10vw] text-right"
                 {...getAnimProps(duration)}
               >
                 {date}
@@ -47,7 +47,7 @@ function CareerSection() {
               >
                 <div className="font-bold">{employer}</div>
                 <div>{title}</div>
-                <div className="font-thin w-[50rem]">{description}</div>
+                <div className="font-thin w-[40vw] text-sm lg:text-lg">{description}</div>
               </motion.div>
             </div>
           </div>
