@@ -6,6 +6,7 @@ import catPhoto from '../../assets/cat.jpg';
 import { PageSections } from './types/section-types';
 import getAnimProps from './helpers/motion-helpers';
 
+// Info used to render relevant links
 const links = [
   { name: 'LinkedIn', link: 'https://www.linkedin.com/in/pablo-paliza-carre-029676134/' },
   { name: 'GitHub', link: 'https://github.com/unit4216/' },
