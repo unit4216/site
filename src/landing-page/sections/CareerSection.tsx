@@ -11,7 +11,7 @@ import getAnimProps from './helpers/motion-helpers';
  */
 function CareerSection() {
   return (
-    <div id={PageSections.CAREER} className="py-20 h-[100vh]">
+    <div id={PageSections.CAREER} className="py-20 h-fit">
       {careerPoints.map((job, index) => {
         const {
           id, description, employer, type, date, title,
